@@ -9,7 +9,7 @@ service getWorkingTime @(path : '/odata/TimeData') {
 entity Attachments as projection on mytime.Attachments;
 
 @Capabilities : { Insertable: true, Updatable : true, Deletable: false }
-entity timeDetails as projection on mytime.timeDetails {
+entity Timedetails as projection on mytime.Timedetails {
    *, AttachmentItems : redirected TO Attachments
 };
 

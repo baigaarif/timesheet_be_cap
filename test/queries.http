@@ -1,11 +1,11 @@
-GET http://localhost:4004/odata/TimeData/WorkingTime
+GET http://localhost:4004/odata/TimeData/timeDetails
 
 ######
 GET http://localhost:4004/odata/TimeData/Attachments
 
 
 ####
-POST http://localhost:4004/odata/TimeData/WorkingTime
+POST http://localhost:4004/odata/TimeData/timeDetails
 Content-Type: application/json
 
 {"PERNR" : 8, "BEGDA" : "2020-12-20", "ENDDA": "2020-12-20",

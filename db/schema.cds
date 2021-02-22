@@ -2,7 +2,7 @@ namespace ventia.polaris.time;
 
 using {managed} from '@sap/cds/common';
 
-entity timeDetails : managed {
+entity Timedetails : managed {
     key PERNR          : Integer;
     key BEGDA          : Date;
     key ENDDA          : Date;
@@ -22,13 +22,13 @@ entity timeDetails : managed {
 
 
 entity Attachments {
-key ID : Association to timeDetails;
+key ID : Association to Timedetails;
 key NUMBER : Integer;
 DocType : String;
 }
 
 entity Allowance { 
- key ID : Association to timeDetails;   
+ key ID : Association to Timedetails;   
  key CODE :Integer;
  Desc : String(100);
  CostObject: String (50);
