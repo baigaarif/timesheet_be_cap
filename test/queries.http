@@ -1,0 +1,29 @@
+GET http://localhost:4004/odata/TimeData/WorkingTime
+
+######
+GET http://localhost:4004/odata/TimeData/Attachments
+
+
+####
+POST http://localhost:4004/odata/TimeData/WorkingTime
+Content-Type: application/json
+
+{"PERNR" : 8, "BEGDA" : "2020-12-20", "ENDDA": "2020-12-20",
+"ATTENDANCETYPE": "Normal Hours", "WORKASSIGNMENT" : "CCC11010",
+"TimeIn": "09:00", "TimeOut": "17:00", "Status": "Approved",
+"HoursWorked": 8
+}
+
+
+####
+
+POST http://localhost:4004/odata/TimeData/Attachments
+Content-Type: application/json
+
+{
+   "NUMBER": 1,"DocType" : "TXT", "ID_PERNR": 7 , "ID_BEGDA" : "2020-12-20" , "ID_ENDDA": "2020-12-20",
+   "ID_ATTENDANCETYPE" : "Normal Hours", "ID_WORKASSIGNMENT" : "CCC11010"
+}
+
+####
+
