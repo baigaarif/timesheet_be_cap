@@ -2,10 +2,13 @@ using {ventia.polaris.time as mytime
 
 } from '../db/schema';
 
-service TIMESHEET_SRV @(path : '/odata/v4/polaris/TIMESHEET_SRV') {
-    
 
-    entity Attachments as projection on mytime.Attachments;    
+
+    
+service TimesheetService @(impl : './handlers/timesheet-service.js')@(path : '/odata/v4/TimesheetService') {
+
+
+   entity Attachments as projection on mytime.Attachments;    
     entity Timedetails as projection on mytime.Timedetails;
     entity Allowances as projection on mytime.Allowance;
     entity Comments as projection on mytime.Comments;
