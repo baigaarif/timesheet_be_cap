@@ -10,7 +10,7 @@ entity Timedetails : managed {
     key TIMEIN            : Time;
     key TIMEOUT           : Time;
     key ATT_ABS_CODE      : String(10);
-        ATT_ABS_DESC      : String(100);
+        att_Abs_Desc      : String(100);
         Day               : String(10);
         hours_Rec         : Integer;
         co_Type           : String;
@@ -29,12 +29,12 @@ entity Timedetails : managed {
         del_Mgr_Approver  : String;
         del_Mgr_FullName  : String;
         WORKASSIGNMENT    : String(100);
-        HasAllowance      : Boolean;
-        HasAttachment     : Boolean;
-        HasComment        : Boolean;
-        AttachmentItems   : Association to many Attachments
-                                on AttachmentItems.ID = $self;
-        HasAllowanceItems : Integer;
+        hasAllowance      : Boolean;
+        hasAttachment     : Boolean;
+        hasComment        : Boolean;
+        attachmentItems   : Association to many Attachments
+                                on attachmentItems.ID = $self;
+        hasAllowanceItems : Integer;
 
 }
 

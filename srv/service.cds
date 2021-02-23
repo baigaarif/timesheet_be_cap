@@ -7,13 +7,14 @@ service TimesheetService @(impl : './handlers/timesheet-service.js')@(path : '/o
 
     entity Attachments as projection on mytime.Attachments;
 
+
     @Capabilities : {
         Insertable : true,
         Updatable  : true,
         Deletable  : false
     }
     entity Timedetails as projection on mytime.Timedetails {
-        * , AttachmentItems : redirected to Attachments
+        * , attachmentItems : redirected to Attachments
     };
 
 
