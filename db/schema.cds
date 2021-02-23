@@ -39,7 +39,7 @@ assert.enum);
 entity Timedetails : managed {
     key PERNR             : Integer;
     key PAYROLL_AREA      : String(20);
-    key DATE              : Date;
+    key TIMESHEET_DATE    : Date;
     key SEQ_NUM           : Integer;
     key TIMEIN            : Time;
     key TIMEOUT           : Time;
@@ -120,7 +120,7 @@ entity FavHeader {
 
 entity FavItems {
     key CUID         : cuid;
-    key    favitems     : Association to FavHeader;
+    key favitems     : Association to FavHeader;
         TIMEIN       : Time;
         TIMEOUT      : Time;
         SEQ_NUM      : Integer;

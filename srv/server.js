@@ -4,12 +4,29 @@ const color = require('color');
 
 global.__base = __dirname + "/"
 console.log(global.__base)
-console.log(`CDS Custom Boostrap from /srv/server.js`)
+console.log(`CDS Custom Boostrap from /srv/server.js`);
 
+process.on('uncaughtException', function (err) {
+    console.error(err.name + ': ' + err.message, err.stack.replace(/.*\n/, '\n')) // eslint-disable-line
+})
+
+process.on('SIGTERM', function (err) {
+    server.close();
+    console.error(err.name + ': ' + err.message, err.stack.replace(/.*\n/, '\n')) // eslint-disable-line
+})
+
+process.once('SIGUSR2', function () {
+    process.kill(process.pid, 'SIGUSR2');
+});
+
+process.on('SIGINT', function () {
+    // this is only called on ctrl+c, not restart
+    process.kill(process.pid, 'SIGINT');
+});
 
 cds.on('bootstrap', app => app.use(proxy({
     services: {
-        "/TMESHEET_SRV/": "TIMESHEET_SRV"
+        "/TimesheetService/": "TimesheetService"
     }
 })))
 
@@ -17,7 +34,7 @@ cds.on('bootstrap', app => app.use(proxy({
 
 //Delegate to default server.js
 module.exports = async (o) => {
-    o.port = process.env.PORT || 4004
+    o.port = process.env.PORT || 4012
     //API route (Disabled by default)
     o.baseDir = global.__base
     o.routes = []
