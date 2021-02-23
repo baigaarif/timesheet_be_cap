@@ -1,29 +1,30 @@
-GET http://localhost:4004/odata/TimeData/timeDetails
+GET http://localhost:4004/odata/v4/polaris/TIMESHEET_SRV/Timedetails
 
 ######
-GET http://localhost:4004/odata/TimeData/Attachments
+GET http://localhost:4004/odata/v4/polaris/TIMESHEET_SRV/Attachments
 
 
 ####
-POST http://localhost:4004/odata/TimeData/timeDetails
-Content-Type: application/json
-
-{"PERNR" : 8, "BEGDA" : "2020-12-20", "ENDDA": "2020-12-20",
-"ATTENDANCETYPE": "Normal Hours", "WORKASSIGNMENT" : "CCC11010",
-"TimeIn": "09:00", "TimeOut": "17:00", "Status": "Approved",
-"HoursWorked": 8
-}
-
-
-####
-
-POST http://localhost:4004/odata/TimeData/Attachments
+POST http://localhost:4004/odata/v4/polaris/TIMESHEET_SRV/Timedetails
 Content-Type: application/json
 
 {
-   "NUMBER": 1,"DocType" : "TXT", "ID_PERNR": 7 , "ID_BEGDA" : "2020-12-20" , "ID_ENDDA": "2020-12-20",
-   "ID_ATTENDANCETYPE" : "Normal Hours", "ID_WORKASSIGNMENT" : "CCC11010"
-}
+      "PERNR": 17,
+      "PAYROLL_AREA": "AB",
+      "DATE": "2020-12-20",
+      "SEQ_NUM": 1,
+      "TIMEIN": "09:00:00",
+      "TIMEOUT": "17:00:00",
+      "ATT_ABS_CODE": "02",
+      "attachmentitems": [{
+          "DocType" : "PDF"
+      }]
+
+} 
 
 ####
 
+POST http://localhost:4004/odata/v4/polaris/TIMESHEET_SRV/Attachments
+Content-Type: application/json
+
+####
